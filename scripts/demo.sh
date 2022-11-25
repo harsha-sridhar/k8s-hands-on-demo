@@ -63,5 +63,8 @@ RunCommand "Deploy the app with configmap" "kubectl create -f ../k8s/app/flask-s
 RunCommand "Delete all the resources created" "kubectl delete -f ../k8s/app/flask-sample-app-service.yaml -f ../k8s/app/flask-sample-app-with-configmap-deployment.yaml -f ../k8s/app/configmap.yaml"
 # PART 8
 RunCommand "Create a Secret" "kubectl create -f ../k8s/app/secret.yaml"
-RunCommand "Deploy the app with configmap" "kubectl create -f ../k8s/app/flask-sample-app-with-secret-deployment.yaml -f ../k8s/app/flask-sample-app-service.yaml"
+RunCommand "Deploy the app with secret" "kubectl create -f ../k8s/app/flask-sample-app-with-secret-deployment.yaml -f ../k8s/app/flask-sample-app-service.yaml"
 RunCommand "Delete all the resources" "kubectl delete -f ../k8s/app/flask-sample-app-with-secret-deployment.yaml -f ../k8s/app/flask-sample-app-service.yaml -f ../k8s/app/secret.yaml"
+
+RunCommand "Stop the local k3d cluster" "k3d cluster stop local"
+RunCommand "Delete the loca k3d cluster" "k3d cluster delete local"
